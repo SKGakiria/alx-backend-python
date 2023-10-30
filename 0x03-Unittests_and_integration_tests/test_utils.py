@@ -15,7 +15,6 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
-
     def test_access_nested_map(self, nested_map: Mapping,
                                path: Sequence, expected: int) -> None:
         """Method tests the access_nested_map"""
@@ -26,7 +25,6 @@ class TestAccessNestedMap(unittest.TestCase):
         ({}, ("a",)),
         ({"a": 1}, ("a", "b"))
     ])
-
     def test_access_nested_map_exception(self, nested_map: Mapping,
                                          path: Sequence) -> None:
         """Method raises an error when expected to during testing"""
@@ -40,9 +38,7 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
     ])
-
     @patch("requests.get")
-
     def test_get_json(self, test_url, test_payload, mock_requests_get):
         """Method tests the get_json"""
         mock_requests_get.return_value.json.return_value = test_payload
